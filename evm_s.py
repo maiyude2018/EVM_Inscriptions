@@ -251,11 +251,11 @@ elif models == "自动连打":
             nums = 1
         go=st.button("开始")
         if go:
+            client = HTTPClient(api=rest)
+            account = Account(private_key=keys, hrp=hrp)
+            client.load_account_data(account=account)
+            st.write("地址:", account.address)
             for i in range(nums):
-                client = HTTPClient(api=rest)
-                account = Account(private_key=keys, hrp=hrp)
-                client.load_account_data(account=account)
-                st.write("地址:", account.address)
                 try:
                     nonce = account.next_sequence
                     if RPC == "COSMOS":
@@ -281,6 +281,3 @@ elif models == "自动连打":
                 except Exception as e:
                     st.write("错误",e)
                     wait(1)
-
-
-
