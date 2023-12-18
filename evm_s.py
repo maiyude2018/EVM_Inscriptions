@@ -241,7 +241,7 @@ elif models == "自动连打":
             except:
                 pass
         if RPC2 == "自定义":
-            rpc = RPC2
+            rpc = st.text_input("rpc_url：")
         st.write("使用rpc",rpc)
         keys = st.text_input(f"私钥：")
         nums = st.text_input(f"连打数量,别打太多容易挂：")
